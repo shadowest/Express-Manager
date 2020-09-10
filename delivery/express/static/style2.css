@@ -1,0 +1,24 @@
+h2
+{
+    text-align: center;
+}
+
+.background_
+    {
+        background: #8ac0de;
+        background-size: 100%;  //这一设置把图片铺满整个背景
+    }
+
+fieldset
+{
+    margin: 0 auto;
+    float: none;
+    width: 50%;
+    height: 50%;
+}
+
+
+legend
+{
+    alignment: right;
+}

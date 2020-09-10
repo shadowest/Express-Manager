@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<link rel="stylesheet"  type="text/css"  href="../../static/style2.css" >
+
+<h2>快递录入界面</h2>
+
+<body class="background_">
+
+<fieldset>
+    <legend>快递录入</legend>
+<form action = "/addbox" method = post>
+    {{ form.csrf_token()}}
+    <br>{{ form.id.label }}{{ form.id }}<br>
+    <br>{{ form.name.label }}&#12288;&#12288;{{ form.name }}<br>
+    <br>{{ form.tel.label }}{{ form.tel }}<br>
+    <br>{{ form.time.label }}&#12288;&#12288;{{ form.time }}<br>
+    <br>{{ form.status.label }}&#12288;&#12288;{{ form.status }}<br>
+    <br>{{ form.submit }}<br>
+
+    {% for message in get_flashed_messages()%}
+        {{ message }}
+    {% endfor %}
+</form>
+
+<hr>
+
+<table border = 1>
+    <thead>
+        <td>快递单号:</td>
+        <td>地址:</td>
+        <td>电话</td>
+        <td>时间</td>
+        <td>取件状态</td>
+    </thead>
+
+<tr>
+    {% for x in row %}
+        <td>{{x}}</td>
+    {% endfor %}
+    {% for y in row_id %}
+        <td><a href="{{ url_for("admin.delete", id=y) }}">删除</a></td>
+    {% endfor %}
+</tr>
+</table>
+
+</fieldset>
+
+<h3 align="center"><a href = "/admin">返回管理员界面</a></h3>
+
+</body>
+</html>

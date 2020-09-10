@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<link rel="stylesheet"  type="text/css"  href="../../static/style2.css" >
+<h2>驿站快递清单</h2>
+    <body class="background_">
+
+        <fieldset>
+            <legend>快递清单</legend>
+      <table border = 1>
+         <thead>
+            <td>快递单号</td>
+            <td>姓名</td>
+            <td>电话</td>
+            <td>时间</td>
+            <td>取件状态</td>
+            <td>修改取件状态</td>
+            <td>删除该订单</td>
+         </thead>
+
+         {% for row in rows %}
+            <tr>
+               <td>{{row["ID"]}}</td>
+               <td>{{row["NAME"]}}</td>
+               <td>{{row["TEL"]}}</td>
+               <td>{{row['Time']}}</td>
+               <td>{{row['Status']}}</td>
+                <td><a href="{{ url_for("admin.change", id=row["ID"]) }}">确认取件</a></td>
+               <td><a href="{{ url_for("admin.delete", id=row["ID"]) }}">删除</a></td>
+            </tr>
+         {% endfor %}
+      </table>
+    </fieldset>
+        <h3 align="center"><a href = "/admin">返回管理员界面</a></h3>
+    </body>
+</html>
